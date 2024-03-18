@@ -10,12 +10,12 @@ while not os.path.isfile(f'data_{YEAR_TARGET}.json'):
     fetchData(YEAR_TARGET)
 
 try:
+    print('Processando os dados...')
     data = processData(YEAR_TARGET)
     df = DataFrame(data)
-    df.to_excel('dados.xlsx', index=False)
+    df.to_excel(f'dados{YEAR_TARGET}.xlsx', index=False)
 except Exception as e:
     print('Erro ao processar os dados.')
     print(e)
-
 
 print('Finalizado com sucesso!')
